@@ -12,9 +12,12 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 import 'hammerjs';
 import 'mousetrap';
+import { UsersIndexComponent } from './users-index/users-index.component';
+import { UsersCreateComponent } from './users-create/users-create.component';
+import { UsersUpdateComponent } from './users-update/users-update.component';
 
 @NgModule({
-  declarations: [TeamDetailsComponent, ProfileComponent, EditProfileComponent],
+  declarations: [TeamDetailsComponent, ProfileComponent, EditProfileComponent, UsersIndexComponent, UsersCreateComponent, UsersUpdateComponent],
   imports: [
     CommonModule,
     UsersRoutingModule,

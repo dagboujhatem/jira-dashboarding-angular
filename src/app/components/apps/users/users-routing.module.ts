@@ -3,6 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { TeamDetailsComponent } from './team-details/team-details.component';
 import { ProfileComponent } from './profile/profile.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { UsersIndexComponent } from './users-index/users-index.component';
+import { UsersCreateComponent } from './users-create/users-create.component';
+import { UsersUpdateComponent } from './users-update/users-update.component';
 
 
 const routes: Routes = [
@@ -20,6 +23,18 @@ const routes: Routes = [
       {
         path:"edit-profile",
         component:EditProfileComponent
+      },
+      {
+        path:"index",
+        component:UsersIndexComponent
+      },
+      {
+        path:"create",
+        component:UsersCreateComponent
+      },
+      {
+        path:"update/:id",
+        component:UsersUpdateComponent
       }
     ],
   }
