@@ -7,6 +7,8 @@ import { full } from "./shared/routes/full.routes";
 import { content } from "./shared/routes/routes";
 
 import { AdminGuard } from './shared/guard/admin.guard';
+import { ResetPasswordComponent } from './auth/reset-password/reset-password.component';
+import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
 
 const routes: Routes = [
   {
@@ -17,6 +19,14 @@ const routes: Routes = [
   {
     path: 'auth/login',
     component: LoginComponent
+  },
+  {
+    path: 'auth/forgot-password',
+    component: ForgotPasswordComponent
+  },
+  {
+    path: 'auth/reset-password/:token',
+    component: ResetPasswordComponent
   },
   {
     path: '',
