@@ -11,7 +11,8 @@ export const environment = {
     projectId: "Your Project Id",
     storageBucket: "Your StorageBucket url",
     messagingSenderId: "Your Sender Id"
-  }
+  },
+  baseURL : "http://localhost:8080/api/v1"
 };
 /*
  * For easier debugging in development mode, you can import the following file
