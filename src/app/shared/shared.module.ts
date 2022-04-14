@@ -34,6 +34,8 @@ import { ShowOptionsDirective } from './directives/show-options.directive';
 import { ChatService } from './services/chat.service';
 import { LayoutService } from './services/layout.service';
 import { NavService } from './services/nav.service';
+import { TokenInterceptor } from './services/providers/token.interceptor';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -72,7 +74,12 @@ import { NavService } from './services/nav.service';
   providers: [
     NavService,
     ChatService,
-    LayoutService
+    LayoutService, 
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    },
   ],
   exports: [
     NgbModule,
