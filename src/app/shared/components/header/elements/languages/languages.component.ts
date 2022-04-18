@@ -18,20 +18,9 @@ export class LanguagesComponent implements OnInit {
     icon: 'us'
   },
   {
-    language: 'Español',
-    code: 'es',
-    icon: 'es'
-  },
-  {
     language: 'Français',
     code: 'fr',
     icon: 'fr'
-  },
-  {
-    language: 'Português',
-    code: 'pt',
-    type: 'BR',
-    icon: 'pt'
   }]
 
   public selectedLanguage: any = {
