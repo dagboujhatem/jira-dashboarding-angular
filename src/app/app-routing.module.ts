@@ -5,8 +5,7 @@ import { ContentComponent } from "./shared/components/layout/content/content.com
 import { FullComponent } from "./shared/components/layout/full/full.component";
 import { full } from "./shared/routes/full.routes";
 import { content } from "./shared/routes/routes";
-
-import { AdminGuard } from './shared/guard/admin.guard';
+import { AuthGuard } from './shared/guard/auth.guard';
 import { ResetPasswordComponent } from './auth/reset-password/reset-password.component';
 import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
 
@@ -31,13 +30,13 @@ const routes: Routes = [
   {
     path: '',
     component: ContentComponent,
-    // canActivate: [AdminGuard],
+    canActivate: [AuthGuard],
     children: content
   },
   {
     path: '',
     component: FullComponent,
-    // canActivate: [AdminGuard],
+    canActivate: [AuthGuard],
     children: full
   },
   {
