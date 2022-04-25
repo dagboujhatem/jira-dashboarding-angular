@@ -83,30 +83,30 @@ export class NavService implements OnDestroy {
 
 	MENUITEMS: Menu[] = [
 		{
-			headTitle1: 'General', headTitle2: 'Dashboards & widgets.',
+			headTitle1: 'General', headTitle2: 'Dashboards With Jira.',
 		},
 		{
-			title: 'Dashboards', icon: 'home', type: 'sub', badgeType: 'success', badgeValue: '2', active: true, children: [
-				{ path: '/dashboard/default', title: 'Default', type: 'link' },
-				{ path: '/dashboard/ecommerce', title: 'Ecommerce', type: 'link' }
+			title: 'Dashboards', icon: 'home', type: 'sub', badgeType: 'success', active: true, children: [
+				{ path: '/dashboard/default', title: 'States Projects', type: 'link' },
+				{ path: '/dashboard/ecommerce', title: 'States Users', type: 'link' }
 			]
 		},
-		{
+	/* 	{
 			title: 'Widgets', icon: 'airplay', type: 'sub', active: false, children: [
 				{ path: '/widgets/general', title: 'General', type: 'link' },
 				{ path: '/widgets/chart', title: 'Chart', type: 'link' }
 			]
+		}, */
+		{
+			headTitle1: 'Project Management', headTitle2: 'Ready To Projects.',
 		},
 		{
-			headTitle1: 'Applications', headTitle2: 'Ready To Use Apps.',
-		},
-		{
-			title: 'Project', icon: 'box', type: 'sub', badgeType: 'danger', badgeValue: 'New', active: false, children: [
+			title: 'Project', icon: 'box', type: 'sub', badgeType: 'danger', active: false, children: [
 				{ path: '/project/list', title: 'Project List', type: 'link' },
 				{ path: '/project/create', title: 'Create New', type: 'link' },
 			]
 		},
-		{
+		/* {
 			path: '/file-manager', title: 'File Manager', icon: 'git-pull-request', type: 'link'
 		},
 		{
@@ -128,24 +128,24 @@ export class NavService implements OnDestroy {
 		},
 		{
 			path: '/chat', title: 'Chat', icon: 'message-square', type: 'link', bookmark: true
-		},
+		}, */
 		{
-			title: 'Users', icon: 'users', type: 'sub', active: false, children: [
+			title: 'Equipe with Projects', icon: 'users', type: 'sub', active: false, children: [
 				{ path: '/user/team-details', title: 'All Users', type: 'link' },
 				{ path: '/user/profile', title: 'User Profile', type: 'link' },
 				{ path: '/user/edit-profile', title: 'Edit Profile', type: 'link' },
 			]
 		},
-		{ path: '/bookmarks', title: 'Bookmarks', icon: 'heart', type: 'link', bookmark: true },
+	/* 	{ path: '/bookmarks', title: 'Bookmarks', icon: 'heart', type: 'link', bookmark: true },
 		{ path: '/contacts', title: 'Contact', icon: 'list', type: 'link', bookmark: true },
 		{ path: '/tasks', title: 'Tasks', icon: 'check-square', type: 'link', bookmark: true },
 		{ path: '/calender', title: 'Calender', icon: 'calendar', type: 'link', bookmark: true },
 		{ path: '/social-app', title: 'Social App', icon: 'zap', type: 'link' },
 		{ path: '/to-do', title: 'Todo', icon: 'clock', type: 'link' },
-		{ path: '/to-do-firebase', title: 'Todo FireBase', icon: 'clock', type: 'link' },
-		{
+		{ path: '/to-do-firebase', title: 'Todo FireBase', icon: 'clock', type: 'link' }, */
+	/* 	{
 			headTitle1: 'Components', headTitle2: 'UI Components & Elements.',
-		},
+		}, *//* 
 		{
 			title: 'Ui-Kits', icon: 'slack', type: 'sub', active: false, children: [
 				{ path: '/ui-kits/avatars', title: 'Avatars', type: 'link' },
@@ -390,8 +390,8 @@ export class NavService implements OnDestroy {
 		},
 		{ path: '/editor', title: 'Editor', icon: 'edit', type: 'link' },
 		{ path: '/knowledgebase', title: 'Knowledgebase', icon: 'sunrise', type: 'link' },
-		{ path: '/support-ticket', title: 'Support Ticket', icon: 'users', type: 'link' }
-	];
+		{ path: '/support-ticket', title: 'Support Ticket', icon: 'users', type: 'link' } */
+	]; 
 
 	MEGAMENUITEMS: Menu[] = [
 		{
