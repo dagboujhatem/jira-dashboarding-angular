@@ -6,6 +6,7 @@ import { FullComponent } from "./shared/components/layout/full/full.component";
 import { full } from "./shared/routes/full.routes";
 import { content } from "./shared/routes/routes";
 import { AuthGuard } from './shared/guard/auth.guard';
+import { IsLoggedGuard } from './shared/guard/is-logged.guard';
 import { ResetPasswordComponent } from './auth/reset-password/reset-password.component';
 import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
 
@@ -17,15 +18,18 @@ const routes: Routes = [
   },
   {
     path: 'auth/login',
-    component: LoginComponent
+    component: LoginComponent,
+    canActivate: [IsLoggedGuard]
   },
   {
     path: 'auth/forgot-password',
-    component: ForgotPasswordComponent
+    component: ForgotPasswordComponent,
+    canActivate: [IsLoggedGuard]
   },
   {
     path: 'auth/reset-password/:token',
-    component: ResetPasswordComponent
+    component: ResetPasswordComponent,
+    canActivate: [IsLoggedGuard]
   },
   {
     path: '',

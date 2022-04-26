@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
   public showLoader: boolean = false;
 
   constructor(private toastr: ToastrService,
-    public authService: AuthService,
+    private authService: AuthService,
     private router: Router,
     private translate: TranslateService) {
       this.loginForm = new FormGroup({
@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.loginForm.value).subscribe((response:any)=>{
       this.showLoader = false;
       this.toastr.success("", response?.message);
-      localStorage.setItem('token', response?.result?.token);
+      this.authService.setToken(response?.result?.token);
       this.router.navigate(['/dashboard/default']);
     }, (error:any)=>{
       this.showLoader = false;
