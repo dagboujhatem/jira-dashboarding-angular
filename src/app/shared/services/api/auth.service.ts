@@ -15,11 +15,11 @@ export class AuthService {
   }
 
   forgotPassword(userCredential: any){
-    return this.http.post(`${this.baseURL}/auth/forgot-password`, userCredential);
+    return this.http.post(`${this.baseURL}/forgot-password`, userCredential);
   }
   
   resetPassword(userCredential: any){
-    return this.http.post(`${this.baseURL}/auth/reset-password`, userCredential);
+    return this.http.post(`${this.baseURL}/reset-password`, userCredential);
   }
 
 }

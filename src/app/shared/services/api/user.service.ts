@@ -28,4 +28,12 @@ export class UserService {
   deletUser(id: any){
     return this.http.delete(`${this.baseURL}/users/${id}`);
   }
+
+  getProfile(){
+    return this.http.get(`${this.baseURL}/profile`);
+  }
+
+  updateProfile(userData: any){
+    return this.http.post(`${this.baseURL}/profile`, userData);
+  }
 }

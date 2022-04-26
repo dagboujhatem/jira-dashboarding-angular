@@ -10,7 +10,8 @@
             </a>
           </div>
           <div class="login-main"> 
-            <form class="theme-form" [formGroup]="loginForm">
+            <form class="theme-form" [formGroup]="loginForm" 
+            (ngSubmit)="login()">
               <h4>Sign in to account</h4>
               <p>Enter your email & password to login</p>
               <div class="form-group">
@@ -42,9 +43,9 @@
                 </div>
                 <a [routerLink]="'/auth/forgot-password'" class="link">Forgot password?</a>
                 <button class="btn btn-primary btn-block"
-                  (click)="login()"
-                  type="button"><span> Login </span>
-                  <!-- type="button"><span>{{ authService.showLoader ? '' : 'Login' }}</span> -->
+                  [class.loader--text]="showLoader"
+                  [disabled]="loginForm.invalid || showLoader"
+                  type="submit"><span> {{ showLoader ? '' : 'Login' }} </span>
                 </button>
               </div>
             </form>

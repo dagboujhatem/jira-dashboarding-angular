@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { FormBuilder, Validators, FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../../shared/services/api/auth.service';
 
 @Component({
@@ -13,13 +14,14 @@ export class LoginComponent implements OnInit {
   public show: boolean = false;
   public loginForm: FormGroup;
   public errorMessage: any;
+  public showLoader: boolean = false;
 
-  constructor(public authService: AuthService,
-    private fb: FormBuilder,
+  constructor(private toastr: ToastrService,
+    public authService: AuthService,
     private router: Router) {
-      this.loginForm = this.fb.group({
-        email: ['', [Validators.required, Validators.email]],
-        password: ['', Validators.required]
+      this.loginForm = new FormGroup({
+        email: new FormControl('', [Validators.required, Validators.email]),
+        password: new FormControl('', Validators.required)
       });
   }
 
@@ -32,11 +34,15 @@ export class LoginComponent implements OnInit {
 
   // Login request 
   login() {
-    this.authService.login(this.loginForm.value).subscribe((res:any)=>{
-      localStorage.setItem('token', res?.result?.token);
+    this.showLoader = true;
+    this.authService.login(this.loginForm.value).subscribe((response:any)=>{
+      this.showLoader = false;
+      this.toastr.success("", response?.message);
+      localStorage.setItem('token', response?.result?.token);
       this.router.navigate(['/dashboard/default']);
-    }, (err:any)=>{
-
+    }, (error:any)=>{
+      this.showLoader = false;
+      this.toastr.error("You have enter wrong e-mail or password.", "Bad credentials");
     });
   }
 

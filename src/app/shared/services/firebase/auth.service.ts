@@ -48,25 +48,21 @@ export class AuthService implements OnInit {
 
   // sign in function
   SignIn(email, password) {
-    console.log('sign')
-    // return this.afAuth.auth.signInWithEmailAndPassword(email, password)
-    //   .then((result) => {
-    //     if (result.user.emailVerified !== true) {
-    //       this.SetUserData(result.user);
-    //       this.SendVerificationMail();
-    //       this.showLoader = true;
-    //     } else {
-    //       this.showLoader = false;
-    //       this.ngZone.run(() => {
-    //         this.router.navigate(['/auth/login']);
-    //       });
-    //     }
-    //   }).catch((error) => {
-    //     this.toster.error('You have enter Wrong Email or Password.');
-    //   })
-    const ob = {username:"hedi"}
-     localStorage.setItem('user','{username:"hedi"}')
-     return  this.router.navigate(['/dashboard/default']);
+    return this.afAuth.auth.signInWithEmailAndPassword(email, password)
+      .then((result) => {
+        if (result.user.emailVerified !== true) {
+          this.SetUserData(result.user);
+          this.SendVerificationMail();
+          this.showLoader = true;
+        } else {
+          this.showLoader = false;
+          this.ngZone.run(() => {
+            this.router.navigate(['/auth/login']);
+          });
+        }
+      }).catch((error) => {
+        this.toster.error('You have enter Wrong Email or Password.');
+      })
 
     
   }
@@ -79,38 +75,10 @@ export class AuthService implements OnInit {
       })
   }
 
-  // Sign in with Facebook
-  signInFacebok() {
-    return this.AuthLogin(new auth.FacebookAuthProvider());
-  }
-
-  // Sign in with Twitter
-  signInTwitter() {
-    return this.AuthLogin(new auth.TwitterAuthProvider());
-  }
-
-  // Sign in with Google
-  GoogleAuth() {
-    return this.AuthLogin(new auth.GoogleAuthProvider());
-  }
-
   ForgotPassword(passwordResetEmail) {
     return this.afAuth.auth.sendPasswordResetEmail(passwordResetEmail)
       .then(() => {
         window.alert('Password reset email sent, check your inbox.');
-      }).catch((error) => {
-        window.alert(error);
-      });
-  }
-
-  // Authentication for Login
-  AuthLogin(provider) {
-    return this.afAuth.auth.signInWithPopup(provider)
-      .then((result) => {
-        this.ngZone.run(() => {
-          this.router.navigate(['/dashboard/default']);
-        });
-        this.SetUserData(result.user);
       }).catch((error) => {
         window.alert(error);
       });
