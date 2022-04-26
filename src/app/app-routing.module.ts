@@ -13,7 +13,7 @@ import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'dashboard/default',
+    redirectTo: 'auth/login',
     pathMatch: 'full'
   },
   {
