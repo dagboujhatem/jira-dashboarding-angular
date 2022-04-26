@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/shared/services/api/auth.service';
+import { MustMatch } from '../../shared/validators/passwordMatch';
 
 @Component({
   selector: 'app-reset-password',
@@ -26,6 +27,9 @@ export class ResetPasswordComponent implements OnInit {
       token: new FormControl(token),
       password: new FormControl('', [Validators.required]),
       passwordConfirmation: new FormControl('', [Validators.required]),
+    // },
+    // {
+    //   validator: MustMatch('password', 'passwordConfirmation')
     });
   }
 

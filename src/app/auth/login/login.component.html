@@ -16,24 +16,24 @@
               <p>Enter your email & password to login</p>
               <div class="form-group">
                 <label class="col-form-label">Email Address</label>
-                <input class="form-control" type="email" required="" placeholder="exemple@company.com" formControlName="email">
+                <input class="form-control" type="email" placeholder="exemple@company.com" formControlName="email">
                   <div *ngIf="loginForm.controls.email.touched && loginForm.controls.email.errors?.required"
                       class="text text-danger mt-1">
-                      Email is required
+                      E-mail is required.
                   </div>
                   <div *ngIf="loginForm.controls.email.touched && loginForm.controls.email.errors?.email"
                       class="text text-danger mt-1">
-                      Invalid Email
+                      Invalid e-mail.
                   </div>
               </div>
               <div class="form-group">
                 <label class="col-form-label">Password</label>
-                <input class="form-control" [type]="show ? 'text' : 'password'" formControlName="password" required="" placeholder="*********">
+                <input class="form-control" [type]="show ? 'text' : 'password'" formControlName="password" placeholder="*********">
                 <div class="show-hide" (click)="showPassword()" *ngIf="!show"><span class="show"></span></div>
                 <div class="show-hide" (click)="showPassword()" *ngIf="show"><span class="Hide"></span></div>
                 <div *ngIf="loginForm.controls.password.touched && loginForm.controls.password.errors?.required"
                       class="text text-danger mt-1">
-                      Password is required
+                      Password is required.
                 </div>
               </div>
               <div class="form-group mb-0">
