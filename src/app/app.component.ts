@@ -21,8 +21,15 @@ export class AppComponent {
   constructor(@Inject(PLATFORM_ID) private platformId: Object,
     private loader: LoadingBarService, translate: TranslateService) {
     if (isPlatformBrowser(this.platformId)) {
+      const langs = ['en', 'fr'];
+      translate.addLangs(langs);
+      // this language will be used as a fallback when a translation isn't found in the current language
       translate.setDefaultLang('en');
-      translate.addLangs(['en', 'de', 'es', 'fr', 'pt', 'cn', 'ae']);
+      // Get browser Lang
+      const browserLang = translate.getBrowserLang();
+      // the lang to use, if the lang isn't available, it will use the current loader to get them
+      translate.use(browserLang.match(/en|fr/) ? browserLang : 'en');
+      // translate.use('en');
     }
   }
 
