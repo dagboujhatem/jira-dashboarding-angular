@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../services/api/auth.service';
 
@@ -10,7 +11,8 @@ export class AuthGuard implements CanActivate {
 
   constructor(private toastr: ToastrService,
     private router: Router,
-    private authService: AuthService) { }
+    private authService: AuthService,
+    private translate: TranslateService) { }
 
   canActivate(
     route: ActivatedRouteSnapshot,
@@ -22,8 +24,8 @@ export class AuthGuard implements CanActivate {
       if (!isexpired) {
         return true
       } else {
-        this.toastr.error('Votre session a été expiré. Merci de refaire le login pour accéder à votre espace.',
-          'La session a été expiré.');
+        const errorMessage =  this.translate.instant('auth.expriredSession');
+        this.toastr.error(errorMessage?.message, errorMessage?.title);
         localStorage.clear();
         this.router.navigate(['/auth/login'])
         return false;

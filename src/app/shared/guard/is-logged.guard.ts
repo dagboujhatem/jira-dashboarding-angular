@@ -8,7 +8,7 @@ import { AuthService } from '../services/api/auth.service';
 export class IsLoggedGuard implements CanActivate {
   constructor(public router: Router,
     private authService: AuthService) { }
-
+  // Guard to redirect the user to dashboard if is connected
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): boolean {

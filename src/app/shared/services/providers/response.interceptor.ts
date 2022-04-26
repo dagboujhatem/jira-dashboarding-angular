@@ -10,24 +10,25 @@ import { Observable, throwError } from 'rxjs';
 import { Router } from '@angular/router';
 import { catchError } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Injectable()
 export class ResponseInterceptor implements HttpInterceptor {
 
   constructor(private router: Router,
-    private toasterService: ToastrService) {}
+    private toasterService: ToastrService,
+    private translate: TranslateService) {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(request).pipe(
      catchError((error: HttpErrorResponse) => {
         // Unauthenticated User error
-        if (error.status === 401) {
+        if (error.status === 401 && !request.url.endsWith('/auth/login')) {
           // reomve localStorage data
           localStorage.clear();
-          this.toasterService.error(
-          'Votre session a été expiré. Merci de refaire le login pour accéder à votre espace.',
-           "La session a été expiré.");
+          const errorMessage =  this.translate.instant('auth.expriredSession');
+          this.toasterService.error(errorMessage?.message, errorMessage?.title);
           // redirect to the login route
           this.router.navigate(['/auth/login']);
         }

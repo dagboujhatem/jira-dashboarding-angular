@@ -221,6 +221,10 @@
       "passwordConfirmationRequired": "Password confirmation is required.",
       "passwordMatch": "Passwords do not match.",
       "done": "Done"
+    },
+    "expriredSession": {
+      "message": "Your session has been expired. Please login again to access your space.",
+      "title": "The session has been expired."
     }
   }
 }

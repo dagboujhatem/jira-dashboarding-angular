@@ -220,6 +220,10 @@
                   "passwordConfirmationRequired": "La confirmation de mot de passe est obligatoire.",
                   "passwordMatch": "Les mots de passe ne correspondent pas.",
                   "done": "Réinitialiser"
+            },
+            "expriredSession": {
+                  "message": "Votre session a été expiré. Merci de refaire le login pour accéder à votre espace.",
+                  "title": "La session a été expiré."
             }
       }
 }
