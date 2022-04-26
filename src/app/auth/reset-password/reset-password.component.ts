@@ -11,6 +11,7 @@ import { AuthService } from 'src/app/shared/services/api/auth.service';
 })
 export class ResetPasswordComponent implements OnInit {
   public show: boolean = false;
+  public showConfirmation: boolean = false;
   public resetPasswordForm: FormGroup;
   public showLoader: boolean = false;
 
@@ -30,6 +31,10 @@ export class ResetPasswordComponent implements OnInit {
 
   showPassword() {
     this.show = !this.show;
+  }
+
+  showPasswordConfirmation() {
+    this.showConfirmation = !this.showConfirmation;
   }
 
   // Reset password request 
