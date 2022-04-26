@@ -35,6 +35,7 @@ import { ChatService } from './services/chat.service';
 import { LayoutService } from './services/layout.service';
 import { NavService } from './services/nav.service';
 import { TokenInterceptor } from './services/providers/token.interceptor';
+import { ResponseInterceptor } from './services/providers/response.interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
@@ -80,6 +81,11 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
       useClass: TokenInterceptor,
       multi: true
     },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ResponseInterceptor,
+      multi: true
+    }
   ],
   exports: [
     NgbModule,
