@@ -12,40 +12,46 @@
           <div class="login-main"> 
             <form class="theme-form" [formGroup]="loginForm" 
             (ngSubmit)="login()">
-              <h4>Sign in to account</h4>
-              <p>Enter your email & password to login</p>
+              <h4>{{ 'auth.login.title' | translate }}</h4>
+              <p>{{ 'auth.login.subTitle' | translate }}</p>
               <div class="form-group">
-                <label class="col-form-label">Email Address</label>
+                <label class="col-form-label">{{ 'auth.login.email' | translate }}</label>
                 <input class="form-control" type="email" placeholder="exemple@company.com" formControlName="email">
                   <div *ngIf="loginForm.controls.email.touched && loginForm.controls.email.errors?.required"
                       class="text text-danger mt-1">
-                      E-mail is required.
+                      {{ 'auth.login.emailRequired' | translate }}
                   </div>
                   <div *ngIf="loginForm.controls.email.touched && loginForm.controls.email.errors?.email"
                       class="text text-danger mt-1">
-                      Invalid e-mail.
+                      {{ 'auth.login.emailBadFormat' | translate }}
                   </div>
               </div>
               <div class="form-group">
-                <label class="col-form-label">Password</label>
+                <label class="col-form-label">{{ 'auth.login.password' | translate }}</label>
                 <input class="form-control" [type]="show ? 'text' : 'password'" formControlName="password" placeholder="*********">
                 <div class="show-hide" (click)="showPassword()" *ngIf="!show"><span class="show"></span></div>
                 <div class="show-hide" (click)="showPassword()" *ngIf="show"><span class="Hide"></span></div>
                 <div *ngIf="loginForm.controls.password.touched && loginForm.controls.password.errors?.required"
                       class="text text-danger mt-1">
-                      Password is required.
+                      {{ 'auth.login.passwordRequired' | translate }}
                 </div>
               </div>
               <div class="form-group mb-0">
                 <div class="checkbox p-0">
                   <input id="checkbox1" type="checkbox">
-                  <label class="text-muted" for="checkbox1">Remember password</label>
+                  <label class="text-muted" for="checkbox1">
+                    {{ 'auth.login.rememberPassword' | translate }}
+                  </label>
                 </div>
-                <a [routerLink]="'/auth/forgot-password'" class="link">Forgot password?</a>
+                <a [routerLink]="'/auth/forgot-password'" class="link">
+                  {{ 'auth.login.forgotPassword' | translate }}
+                </a>
                 <button class="btn btn-primary btn-block"
                   [class.loader--text]="showLoader"
                   [disabled]="loginForm.invalid || showLoader"
-                  type="submit"><span> {{ showLoader ? '' : 'Login' }} </span>
+                  type="submit"><span> 
+                    {{ showLoader ? '' : 'auth.login.loginBtn' | translate }} 
+                  </span>
                 </button>
               </div>
             </form>

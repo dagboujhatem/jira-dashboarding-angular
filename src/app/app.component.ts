@@ -30,6 +30,9 @@ export class AppComponent {
       // the lang to use, if the lang isn't available, it will use the current loader to get them
       translate.use(browserLang.match(/en|fr/) ? browserLang : 'en');
       // translate.use('en');
+      // console.log(browserLang);
+      // console.log(translate.getLangs());
+      // console.log(translate.currentLang);
     }
   }
 

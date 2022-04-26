@@ -177,5 +177,50 @@
   "Ready To Use Froms & Tables.": "Ready To Use Froms & Tables.",
   "Miscellaneous": "Miscellaneous",
   "Bouns Pages & Apps.": "Bouns Pages & Apps.",
-  "Gallery": "Gallery"
+  "Gallery": "Gallery",
+  "common": {
+    "SweetAlert": {
+      "title": "Are you sure?",
+      "text": "Are you sure you want to delete this recording?",
+      "confirmButtonText": "Yes, delete it",
+      "cancelButtonText": "No, cancel"
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "Sign in to account",
+      "subTitle": "Enter your email & password to login",
+      "email": "Email Address",
+      "emailRequired": "E-mail is required.",
+      "emailBadFormat": "Invalid e-mail.",
+      "password": "Password",
+      "passwordRequired": "Password is required.",
+      "rememberPassword": "Remember password",
+      "forgotPassword": "Forgot password?",
+      "loginBtn": "Login",
+      "errorMessage": {
+        "title": "Bad credentials",
+        "message": "You have enter wrong e-mail or password."
+      }
+    },
+    "forgotPassword": {
+      "title": "Reset Your Password",
+      "email": "Enter Your E-mail Address",
+      "emailPlaceholder":"Enter your e-mail here",
+      "emailRequired": "E-mail is required.",
+      "emailBadFormat":"Invalid e-mail.",
+      "forgotBtn":"Send Password Reset Link",
+      "alreadyHaveAccount":"Already have an password?",
+      "signIn":"Sign in"
+    },
+    "resetPassword": {
+      "title": "Create Your Password",
+      "password": "New Password",
+      "passwordRequired": "Password is required.",
+      "passwordConfirmation": "Retype Password",
+      "passwordConfirmationRequired": "Password confirmation is required.",
+      "passwordMatch": "Passwords do not match.",
+      "done": "Done"
+    }
+  }
 }

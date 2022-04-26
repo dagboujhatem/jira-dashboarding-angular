@@ -1,8 +1,8 @@
 {
       "Dashboard": "Tableau de bord",
       "Default": "Défaut",
-      "E-Commerce":"E-Commerce",
-      "Project":"Projet",
+      "E-Commerce": "E-Commerce",
+      "Project": "Projet",
       "Project List": "Liste des projets",
       "Create New": "Créer un nouveau",
       "File Manager": "Gestionnaire de fichiers",
@@ -11,9 +11,9 @@
       "Tasks": "Tâches",
       "Todo": "Faire",
       "Todo FireBase": "Faire FireBase",
-      "Widgets":"Widgets",
-      "General":"général",
-      "Chart":"graphique",
+      "Widgets": "Widgets",
+      "General": "général",
+      "Chart": "graphique",
       "Ui-Kits": "Eléments d'interface utilisateur",
       "Avatars": "Avatars",
       "Breadcrumb": "Miette de pain",
@@ -177,5 +177,49 @@
       "Miscellaneous": "Divers",
       "Bouns Pages & Apps.": "Bouns Pages & Apps.",
       "Gallery": "Galerie",
-      "Bonus UI": "Bonus UI"
+      "Bonus UI": "Bonus UI",
+      "common": {
+            "SweetAlert": {
+                  "title": "Êtes-vous sûr?",
+                  "text": "Voulez-vous vraiment supprimer cette enregistrement?",
+                  "confirmButtonText": "Oui, supprimez-le"
+            }
+      },
+      "auth": {
+            "login": {
+                  "title": "Se connecter au compte",
+                  "subTitle": "Entrez votre e-mail et votre mot de passe pour se connecter",
+                  "email": "Adresse e-mail",
+                  "emailRequired": "L'e-mail est obligatoire.",
+                  "emailBadFormat": "E-mail non valide.",
+                  "password": "Mot de passe",
+                  "passwordRequired": "Le mot de passe est obligatoire.",
+                  "rememberPassword": "Mémoriser le mot de passe",
+                  "forgotPassword": "Mot de passe oublié?",
+                  "loginBtn": "Connexion",
+                  "errorMessage": {
+                        "title": "Mauvaise identification",
+                        "message": "Vous avez saisi une mauvaise adresse e-mail ou un mauvais mot de passe."
+                  }
+            },
+            "forgotPassword": {
+                  "title": "Réinitialiser votre mot de passe",
+                  "email": "Entrez votre adresse e-mail",
+                  "emailPlaceholder":"Entrez votre e-mail ici",
+                  "emailRequired": "L'e-mail est obligatoire.",
+                  "emailBadFormat":"E-mail non valide.",
+                  "forgotBtn":"Envoyer le lien de réinitialisation",
+                  "alreadyHaveAccount":"Vous avez déjà un mot de passe?",
+                  "signIn":"Se connecter"
+            },
+            "resetPassword": {
+                  "title": "Créez votre mot de passe",
+                  "password": "Nouveau mot de passe",
+                  "passwordRequired": "Le mot de passe est obligatoire.",
+                  "passwordConfirmation": "Confirmez le mot de passe",
+                  "passwordConfirmationRequired": "La confirmation de mot de passe est obligatoire.",
+                  "passwordMatch": "Les mots de passe ne correspondent pas.",
+                  "done": "Réinitialiser"
+            }
+      }
 }

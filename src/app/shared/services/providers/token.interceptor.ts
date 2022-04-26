@@ -6,24 +6,27 @@ import {
   HttpInterceptor
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { TranslateService } from '@ngx-translate/core';
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
 
-  constructor() {}
+  constructor(private translate: TranslateService) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     const token = localStorage.getItem('token');
-    if (token != null) {
-      const newRequest = request.clone({
-        setHeaders: {
-          'Authorization': `Bearer ${token}`,
-        },
-      })
-      return next.handle(newRequest);
-    } else {
-      return next.handle(request)
+    const currentLang = this.translate.currentLang;
+    let headers = {};
+    if(currentLang != undefined){
+      headers['Accept-Language'] = `${currentLang}`;
     }
+    if (token != null) {
+      headers['Authorization'] = `Bearer ${token}`;
+    }
+    const newRequest = request.clone({
+      setHeaders: headers
+    })
+    return next.handle(newRequest);
   }
 
 }

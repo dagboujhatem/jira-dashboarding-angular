@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../../shared/services/api/auth.service';
 
@@ -18,7 +19,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private toastr: ToastrService,
     public authService: AuthService,
-    private router: Router) {
+    private router: Router,
+    private translate: TranslateService) {
       this.loginForm = new FormGroup({
         email: new FormControl('', [Validators.required, Validators.email]),
         password: new FormControl('', Validators.required)
@@ -42,7 +44,8 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['/dashboard/default']);
     }, (error:any)=>{
       this.showLoader = false;
-      this.toastr.error("You have enter wrong e-mail or password.", "Bad credentials");
+      const errorMessage =  this.translate.instant('auth.login.errorMessage');
+      this.toastr.error(errorMessage?.message, errorMessage?.title);
     });
   }
 
