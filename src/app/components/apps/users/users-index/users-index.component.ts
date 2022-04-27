@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { UserService } from '../../../../shared/services/api/user.service';
+import { SweetAlertService } from '../../../../shared/services/providers/sweet-alert.service';
 
 @Component({
   selector: 'app-users-index',
@@ -8,25 +10,33 @@ import { UserService } from '../../../../shared/services/api/user.service';
 })
 export class UsersIndexComponent implements OnInit {
   users: any[];
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService,
+    private toasterService: ToastrService,
+    private sweetAlertService: SweetAlertService
+) { }
 
   ngOnInit(): void {
     this.loadUsers();
   }
 
   loadUsers() {
-    this.userService.getAllUsers().subscribe((res:any)=>{
-      this.users = res?.result;
-    }, (err:any)=>{
-
+    this.userService.getAllUsers().subscribe((response:any)=>{
+      this.users = response?.result;
+    }, (error:any)=>{
+      this.toasterService.error('', error?.error?.message);
     });
   }
 
   deleteUser(id:any){
-    this.userService.deletUser(id).subscribe((res:any)=>{
-      this.loadUsers();
-    }, (err:any)=>{
-
+    this.sweetAlertService.deleteConfirmation().then((result) => {
+      if (result.value) {
+        this.userService.deletUser(id).subscribe((response:any)=>{
+          this.toasterService.success('', response?.message);
+          this.loadUsers();
+        }, (error:any)=>{
+          this.toasterService.error('', error?.error?.message);
+        });
+      }
     });
   }
 

@@ -182,7 +182,8 @@
             "SweetAlert": {
                   "title": "Êtes-vous sûr?",
                   "text": "Voulez-vous vraiment supprimer cette enregistrement?",
-                  "confirmButtonText": "Oui, supprimez-le"
+                  "confirmButtonText": "Oui, supprimez-le",
+                  "cancelButtonText": "Non, annuler"
             }
       },
       "auth": {
