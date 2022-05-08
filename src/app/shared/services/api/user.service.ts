@@ -22,7 +22,7 @@ export class UserService {
   }
 
   updateUser(id: any, userData: any){
-    return this.http.post(`${this.baseURL}/users/${id}`, userData);
+    return this.http.put(`${this.baseURL}/users/${id}`, userData);
   }
 
   deletUser(id: any){

@@ -42,7 +42,7 @@ export class UsersCreateComponent implements OnInit {
     let formData: any = new FormData()
     if (this.currentFile) {
       formData.append("file", this.currentFile, this.currentFile.name);
-      this.userService.uploadAvatar(this.userForm.value).subscribe((res: any) => {
+      this.userService.uploadAvatar(formData).subscribe((res: any) => {
         const userForm = this.userForm.value;
         userForm['avatar'] = res?.result;
         this.addUser(userForm);
