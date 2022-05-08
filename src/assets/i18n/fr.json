@@ -179,11 +179,24 @@
       "Gallery": "Galerie",
       "Bonus UI": "Bonus UI",
       "common": {
-            "SweetAlert": {
+            "sweetAlert": {
                   "title": "Êtes-vous sûr?",
                   "text": "Voulez-vous vraiment supprimer cette enregistrement?",
                   "confirmButtonText": "Oui, supprimez-le",
                   "cancelButtonText": "Non, annuler"
+            },
+            "tables": {
+                  "createdAt": "Date de création",
+                  "actions": "Actions",
+                  "createNew": "Créer",
+                  "update": "Modifier",
+                  "delete": "Supprimer",
+                  "back": "Retour"
+            },
+            "cardTitle": {
+                  "userIndex": "Liste des utilisateurs",
+                  "createUser": "Créer un nouvel utilisateur",
+                  "updateUser": "Mise à jour des informations d'utilisateur"
             }
       },
       "auth": {
@@ -206,12 +219,12 @@
             "forgotPassword": {
                   "title": "Réinitialiser votre mot de passe",
                   "email": "Entrez votre adresse e-mail",
-                  "emailPlaceholder":"Entrez votre e-mail ici",
+                  "emailPlaceholder": "Entrez votre e-mail ici",
                   "emailRequired": "L'e-mail est obligatoire.",
-                  "emailBadFormat":"E-mail non valide.",
-                  "forgotBtn":"Envoyer le lien de réinitialisation",
-                  "alreadyHaveAccount":"Vous avez déjà un mot de passe?",
-                  "signIn":"Se connecter"
+                  "emailBadFormat": "E-mail non valide.",
+                  "forgotBtn": "Envoyer le lien de réinitialisation",
+                  "alreadyHaveAccount": "Vous avez déjà un mot de passe?",
+                  "signIn": "Se connecter"
             },
             "resetPassword": {
                   "title": "Créez votre mot de passe",
@@ -225,6 +238,39 @@
             "expriredSession": {
                   "message": "Votre session a été expiré. Merci de refaire le login pour accéder à votre espace.",
                   "title": "La session a été expiré."
+            }
+      },
+      "user": {
+            "fields": {
+                  "firstName": "Prénom",
+                  "lastName": "Nom",
+                  "email": "E-mail",
+                  "password": "Mot de passe",
+                  "role": "Rôle",
+                  "avatar": "Photo"
+            },
+            "validations": {
+                  "firstNameRequired": "Le prénom est obligatoire.",
+                  "lastNameRequired": "Le nom est obligatoire.",
+                  "emailRequired": "L'e-mail est obligatoire.",
+                  "emailBadFormat": "E-mail non valide.",
+                  "passwordRequired": "Le mot de passe est obligatoire.",
+                  "roleRequired": "Le rôle est obligatoire."
+            },
+            "roles": {
+                  "admin": "Administrateur",
+                  "directeur": "Directeur",
+                  "teamManager": "Chef d'équipe",
+                  "projectManager": "Chef de projet",
+                  "teamLeader": "Responsable d'équipe",
+                  "softwareDeveloper": "Développeur logiciel",
+                  "qualityAnalyste": "Analyste qualité",
+                  "helpDesk": "Service d'assistance",
+                  "IT": "IT"
+            },
+            "buttons": {
+                  "add": "Ajouter",
+                  "update": "Modifier"
             }
       }
 }

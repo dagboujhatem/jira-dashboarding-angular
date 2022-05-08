@@ -1,11 +1,11 @@
-<app-breadcrumb [title]="'User'" [items]="['Apps', 'User']" [active_item]="'Edit Profile'"></app-breadcrumb>
+<app-breadcrumb [title]="'Users'" [items]="['Apps', 'User']" [active_item]="'Edit Profile'"></app-breadcrumb>
 <div class="container-fluid">
   <div class="edit-profile">
     <div class="row">
       <div class="col-xl-8 xl-100">
-        <form class="card" [formGroup]="editProfile" (ngSubmit)="addNewUser()">
+        <form class="card" [formGroup]="userForm" (ngSubmit)="addNewUser()">
           <div class="card-header">
-            <h4 class="card-title mb-0">Create New User</h4>
+            <h4 class="card-title mb-0">{{ 'common.cardTitle.createUser' | translate }}</h4>
             <div class="card-options"><a class="card-options-collapse" href="javascript:void(0)"
                 data-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a><a class="card-options-remove"
                 href="javascript:void(0)" data-toggle="card-remove"><i class="fe fe-x"></i></a></div>
@@ -14,56 +14,85 @@
             <div class="row">
               <div class="col-sm-6 col-md-6">
                 <div class="form-group">
-                  <label class="form-label">First Name</label>
-                  <input class="form-control" type="text" placeholder="First Name" formControlName="firstName"
+                  <label class="form-label">{{ 'user.fields.firstName' | translate }}</label>
+                  <input class="form-control" type="text" placeholder="{{ 'user.fields.firstName' | translate }}" formControlName="firstName"
                     onlyAlphabets>
+                    <div *ngIf="submitted && userForm.controls.firstName.errors?.required"
+                      class="text text-danger mt-1">
+                        {{ 'user.validations.firstNameRequired' | translate }}
+                    </div>
                 </div>
               </div>
               <div class="col-sm-6 col-md-6">
                 <div class="form-group">
-                  <label class="form-label">Last Name</label>
-                  <input class="form-control" type="text" placeholder="Last Name" formControlName="lastName"
+                  <label class="form-label">{{ 'user.fields.lastName' | translate }}</label>
+                  <input class="form-control" type="text" placeholder="{{ 'user.fields.lastName' | translate }}" formControlName="lastName"
                     onlyAlphabets>
+                    <div *ngIf="submitted && userForm.controls.lastName.errors?.required"
+                      class="text text-danger mt-1">
+                        {{ 'user.validations.lastNameRequired' | translate }}
+                    </div>
                 </div>
               </div>
               <div class="col-sm-6 col-md-6">
                 <div class="form-group">
-                  <label class="form-label">Email address</label>
-                  <input class="form-control" type="email" placeholder="Email" formControlName="email">
+                  <label class="form-label">{{ 'user.fields.email' | translate }}</label>
+                  <input class="form-control" type="email" placeholder="{{ 'user.fields.email' | translate }}" formControlName="email">
+                  <div *ngIf="submitted && userForm.controls.email.errors?.required"
+                      class="text text-danger mt-1">
+                      {{ 'user.validations.emailRequired' | translate }}
+                  </div>
+                  <div *ngIf="submitted && userForm.controls.email.errors?.email"
+                      class="text text-danger mt-1">
+                      {{ 'user.validations.emailBadFormat' | translate }}
+                  </div>
                 </div>
               </div>
               <div class="col-sm-6 col-md-6">
                 <div class="form-group">
-                  <label class="form-label">Password</label>
-                  <input class="form-control" type="password" placeholder="Password" formControlName="password">
+                  <label class="form-label">{{ 'user.fields.password' | translate }}</label>
+                  <input class="form-control" type="password" placeholder="{{ 'user.fields.password' | translate }}" formControlName="password">
+                  <div *ngIf="submitted && userForm.controls.password.errors?.required"
+                      class="text text-danger mt-1">
+                      {{ 'user.validations.passwordRequired' | translate }}
+                  </div>
                 </div>
               </div>
-              <div class="col-md-5">
+              <div class="col-sm-6 col-md-6">
                 <div class="form-group">
-                  <label class="form-label">Role</label>
+                  <label class="form-label">{{ 'user.fields.role' | translate }}</label>
                   <select class="form-control btn-square" formControlName="role">
-                    <option value="0">Admin</option>
-                    <option value="1">Directeur</option>
-                    <option value="2">Team Manager</option>
-                    <option value="3">Project Manager</option>
-                    <option value="4">Team Leader</option>
-                    <option value="4">Software Developer</option>
-                    <option value="4">Quality Analyste</option>
-                    <option value="4">Help desk</option>
-                    <option value="4">IT</option>
+                    <option value="ROLE_ADMIN">{{ 'user.roles.admin' | translate }}</option>
+                    <option value="ROLE_DIRECTEUR">{{ 'user.roles.directeur' | translate }}</option>
+                    <option value="ROLE_TEAM_MANAGER">{{ 'user.roles.teamManager' | translate }}</option>
+                    <option value="ROLE_PROJECT_MANAGER">{{ 'user.roles.projectManager' | translate }}</option>
+                    <option value="ROLE_TEAM_LEADER">{{ 'user.roles.teamLeader' | translate }}</option>
+                    <option value="ROLE_SOFTWARE_DEVELOPER">{{ 'user.roles.softwareDeveloper' | translate }}</option>
+                    <option value="ROLE_QUALITY_ANALYSTE">{{ 'user.roles.qualityAnalyste' | translate }}</option>
+                    <option value="ROLE_HELP_DESK">{{ 'user.roles.helpDesk' | translate }}</option>
+                    <option value="ROLE_IT">{{ 'user.roles.IT' | translate }}</option>
                   </select>
+                </div>
+                <div *ngIf="submitted && userForm.controls.role.errors?.required"
+                      class="text text-danger mt-1">
+                      {{ 'user.validations.roleRequired' | translate }}
                 </div>
               </div>
               <div class="col-sm-6 col-md-3">
                 <div class="form-group">
-                  <label class="form-label">Avatar</label>
-                  <input class="file-form-control" type="file">
+                  <label class="form-label">{{ 'user.fields.avatar' | translate }}</label>
+                  <input class="file-form-control" type="file" (change)="onFileChange($event)" accept="image/*">
                 </div>
               </div>
             </div>
           </div>
           <div class="card-footer text-right">
-            <button class="btn btn-primary" type="submit">Add</button>
+            <button class="btn btn-primary mr-1" type="button" routerLink="/user/index">
+              <i class="fa fa-arrow-left"></i> {{ 'common.tables.back' | translate }}
+            </button>
+            <button class="btn btn-success" type="submit">
+              <i class="fa fa-save"></i> {{ 'user.buttons.add' | translate }}
+            </button>
           </div>
         </form>
       </div>

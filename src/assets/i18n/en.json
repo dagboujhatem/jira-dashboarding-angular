@@ -179,11 +179,24 @@
   "Bouns Pages & Apps.": "Bouns Pages & Apps.",
   "Gallery": "Gallery",
   "common": {
-    "SweetAlert": {
+    "sweetAlert": {
       "title": "Are you sure?",
       "text": "Are you sure you want to delete this recording?",
       "confirmButtonText": "Yes, delete it",
       "cancelButtonText": "No, cancel"
+    },
+    "tables": {
+      "createdAt": "Created At",
+      "actions": "Actions",
+      "createNew": "Create new",
+      "update": "Update",
+      "delete": "Delete",
+      "back": "Back"
+    },
+    "cardTitle": {
+      "userIndex": "List of users",
+      "createUser": "Create new user",
+      "updateUser": "Update user infos"
     }
   },
   "auth": {
@@ -206,12 +219,12 @@
     "forgotPassword": {
       "title": "Reset Your Password",
       "email": "Enter Your E-mail Address",
-      "emailPlaceholder":"Enter your e-mail here",
+      "emailPlaceholder": "Enter your e-mail here",
       "emailRequired": "E-mail is required.",
-      "emailBadFormat":"Invalid e-mail.",
-      "forgotBtn":"Send Password Reset Link",
-      "alreadyHaveAccount":"Already have an password?",
-      "signIn":"Sign in"
+      "emailBadFormat": "Invalid e-mail.",
+      "forgotBtn": "Send Password Reset Link",
+      "alreadyHaveAccount": "Already have an password?",
+      "signIn": "Sign in"
     },
     "resetPassword": {
       "title": "Create Your Password",
@@ -225,6 +238,39 @@
     "expriredSession": {
       "message": "Your session has been expired. Please login again to access your space.",
       "title": "The session has been expired."
+    }
+  },
+  "user": {
+    "fields": {
+      "firstName": "First name",
+      "lastName": "Last name",
+      "email": "E-mail",
+      "password": "Password",
+      "role": "Role",
+      "avatar": "Avatar"
+    },
+    "validations": {
+      "firstNameRequired": "First name is required.",
+      "lastNameRequired": "Last name is required.",
+      "emailRequired": "E-mail is required.",
+      "emailBadFormat": "Invalid e-mail.",
+      "passwordRequired": "Password is required.",
+      "roleRequired": "Role is required."
+    },
+    "roles": {
+      "admin": "Admin",
+      "directeur": "Directeur",
+      "teamManager": "Team Manager",
+      "projectManager": "Project Manager",
+      "teamLeader": "Team Leader",
+      "softwareDeveloper": "Software Developer",
+      "qualityAnalyste": "Quality Analyste",
+      "helpDesk": "Help desk",
+      "IT": "IT"
+    },
+    "buttons": {
+      "add": "Add",
+      "update": "Update"
     }
   }
 }
