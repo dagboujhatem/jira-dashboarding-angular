@@ -34,7 +34,7 @@ export class UserService {
   }
 
   updateProfile(userData: any){
-    return this.http.post(`${this.baseURL}/profile`, userData);
+    return this.http.put(`${this.baseURL}/profile`, userData);
   }
 
   uploadAvatar(formData: any){

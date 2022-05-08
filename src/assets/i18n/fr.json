@@ -196,7 +196,8 @@
             "cardTitle": {
                   "userIndex": "Liste des utilisateurs",
                   "createUser": "Créer un nouvel utilisateur",
-                  "updateUser": "Mise à jour des informations d'utilisateur"
+                  "updateUser": "Mise à jour des informations d'utilisateur",
+                  "editProfile": "Modifier mon profil"
             }
       },
       "auth": {
@@ -270,7 +271,8 @@
             },
             "buttons": {
                   "add": "Ajouter",
-                  "update": "Modifier"
+                  "update": "Modifier",
+                  "updateProfile": "Mettre à jour mon profil"
             }
       }
 }

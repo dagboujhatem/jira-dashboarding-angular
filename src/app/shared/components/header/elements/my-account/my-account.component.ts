@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '../../../../services/firebase/auth.service';
 
 @Component({
@@ -8,9 +9,15 @@ import { AuthService } from '../../../../services/firebase/auth.service';
 })
 export class MyAccountComponent implements OnInit {
 
-  constructor(public authService: AuthService) { }
+  constructor(public authService: AuthService,
+      private router: Router) { }
 
   ngOnInit() {
+  }
+
+  logout(){
+    localStorage.clear();
+    this.router.navigateByUrl('/auth/login');
   }
 
 }

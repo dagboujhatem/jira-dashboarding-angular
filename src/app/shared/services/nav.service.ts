@@ -132,7 +132,7 @@ export class NavService implements OnDestroy {
 		{
 			title: 'Equipe with Projects', icon: 'users', type: 'sub', active: false, children: [
 				{ path: '/user/index', title: 'All Users', type: 'link' },
-				{ path: '/user/create', title: 'User Profile', type: 'link' },
+				{ path: '/user/create', title: 'Create New User', type: 'link' },
 				// { path: '/user/team-details', title: 'All Users', type: 'link' },
 				// { path: '/user/profile', title: 'User Profile', type: 'link' },
 				// { path: '/user/edit-profile', title: 'Edit Profile', type: 'link' },

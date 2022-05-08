@@ -11,7 +11,9 @@ import jwt_decode from "jwt-decode";
 export class AuthService {
 
   baseURL= environment.baseURL
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.getAuthentificatedUserId();
+   }
 
   login(userCredential: any){
     return this.http.post(`${this.baseURL}/auth/login`, userCredential);
@@ -59,6 +61,43 @@ export class AuthService {
   isExpiredToken(token: string): boolean {
     const decoded:any= jwt_decode(token);
     return Math.floor(new Date().getTime()/1000)>=decoded.exp
+  }
+
+
+  getRole()
+  {
+    const token = this.getToken();
+    if(token){
+      const decoded:any= jwt_decode(token);
+      if(decoded.authorities.length>0)
+      {
+        const firstRole = decoded.authorities[0]?.authority;
+        return firstRole;
+      }else {
+        return null;
+      }
+      
+    }else {
+      return null;
+    }
+  }
+
+  getAuthentificatedUserId(){
+    const token = this.getToken();
+    if(token){
+      const decoded:any= jwt_decode(token);
+      if(decoded.sub)
+      {
+        const userId = decoded.sub;
+        console.log(userId)
+        return userId;
+      }else {
+        return null;
+      }
+      
+    }else {
+      return null;
+    }
   }
 
 }
