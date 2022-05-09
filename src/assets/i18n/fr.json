@@ -248,6 +248,7 @@
                   "lastName": "Nom",
                   "email": "E-mail",
                   "password": "Mot de passe",
+                  "passwordConfirmation": "Confirmez le mot de passe",
                   "role": "Rôle",
                   "avatar": "Photo"
             },
@@ -258,7 +259,9 @@
                   "emailBadFormat": "E-mail non valide.",
                   "passwordRequired": "Le mot de passe est obligatoire.",
                   "passwordPattern": "Le mot de passe doit contenir au minimum: 8 caractères, au moins une lettre minuscule, au moins une lettre majuscule, un chiffre et un caractère spécial.",
-                  "roleRequired": "Le rôle est obligatoire."
+                  "roleRequired": "Le rôle est obligatoire.",                  
+                  "passwordConfirmationRequired": "La confirmation de mot de passe est obligatoire.",
+                  "passwordMatch": "Les deux mot de passe ne sont pas identiques."
             },
             "roles": {
                   "admin": "Administrateur",

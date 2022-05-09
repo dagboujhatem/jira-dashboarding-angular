@@ -26,8 +26,8 @@ export class UsersCreateComponent implements OnInit {
       role: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required,
       Validators.pattern(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[^\w\s]).{8,}$/)]),
-      // passwordConfirmation: new FormControl('', [Validators.required,
-      //   RxwebValidators.compare({fieldName:'password' })])
+      passwordConfirmation: new FormControl('', [Validators.required,
+        RxwebValidators.compare({fieldName:'password' })])
     });
   }
 
