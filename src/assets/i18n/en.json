@@ -231,9 +231,10 @@
       "title": "Create Your Password",
       "password": "New Password",
       "passwordRequired": "Password is required.",
+      "passwordPattern": "Password must contain minimum: 8 characters, at least one lowercase letter, at least one uppercase letter, one number and one special character.",
       "passwordConfirmation": "Retype Password",
       "passwordConfirmationRequired": "Password confirmation is required.",
-      "passwordMatch": "Passwords do not match.",
+      "passwordMatch": "The two passwords are not identical.",
       "done": "Done"
     },
     "expriredSession": {

@@ -37,6 +37,7 @@ import { NavService } from './services/nav.service';
 import { TokenInterceptor } from './services/providers/token.interceptor';
 import { ResponseInterceptor } from './services/providers/response.interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     ReactiveFormsModule,
     NgbModule,
     DragulaModule.forRoot(),
-    TranslateModule
+    TranslateModule,
+	  RxReactiveFormsModule
   ],
   providers: [
     NavService,

@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/shared/services/api/auth.service';
-import { MustMatch } from '../../shared/validators/passwordMatch';
+import { RxwebValidators } from '@rxweb/reactive-form-validators';
 
 @Component({
   selector: 'app-reset-password',
@@ -25,11 +25,11 @@ export class ResetPasswordComponent implements OnInit {
     const token = this.activatedRoute.snapshot.params['token'];
     this.resetPasswordForm = new FormGroup({
       token: new FormControl(token),
-      password: new FormControl('', [Validators.required]),
-      passwordConfirmation: new FormControl('', [Validators.required]),
-    // },
-    // {
-    //   validator: MustMatch('password', 'passwordConfirmation')
+      password: new FormControl('', [Validators.required,
+        Validators.pattern(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[^\w\s]).{8,}$/)
+      ]),
+      passwordConfirmation: new FormControl('', [Validators.required,
+        RxwebValidators.compare({fieldName:'password' })])
     });
   }
 
