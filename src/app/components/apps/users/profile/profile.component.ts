@@ -14,6 +14,8 @@ import {
   PlainGalleryStrategy,
   AdvancedLayout,
 } from '@ks89/angular-modal-gallery';
+import { ToastrService } from 'ngx-toastr';
+import { UserService } from 'src/app/shared/services/api/user.service';
 
 @Component({
   selector: 'app-profile',
@@ -23,6 +25,8 @@ import {
 export class ProfileComponent implements OnInit {
 
   public url: any;
+  myProfile: any;
+  myRole: any;
   
   images: Image[] = [
     new Image(
@@ -41,7 +45,9 @@ export class ProfileComponent implements OnInit {
       })
   ]
 
-  constructor(private galleryService: GalleryService) { }
+  constructor(private galleryService: GalleryService,
+    private userService: UserService,
+    private toasterService: ToastrService) { }
 
   buttonsConfigDefault: ButtonsConfig = {
     visible: true,
@@ -132,6 +138,45 @@ export class ProfileComponent implements OnInit {
     }
   }
 
-  ngOnInit() { }
+  ngOnInit() { 
+    this.loadProfileData();
+  }
+
+  loadProfileData(){
+    this.userService.getProfile().subscribe((response: any) => {
+      // delete the password 
+      delete response?.result?.password;
+      // show data in the form
+      this.myProfile = response?.result;
+      this.loadRoleName(this.myProfile.role);
+    }, (error: any) => {
+      this.toasterService.error('', error?.error?.message);
+    });
+  }
+
+  loadRoleName(role:string){
+    if(role == "ROLE_ADMIN")
+    {
+      this.myRole = "user.roles.admin";
+    } else if(role == "ROLE_TEAM_MANAGER")
+    {
+      this.myRole = "user.roles.teamManager";
+    } else if(role == "ROLE_PROJECT_MANAGER")
+    {
+      this.myRole = "user.roles.projectManager";
+    } else if(role == "ROLE_TEAM_LEADER")
+    {
+      this.myRole = "user.roles.teamLeader"
+    } else if(role == "ROLE_SOFTWARE_DEVELOPER")
+    {
+      this.myRole = "user.roles.softwareDeveloper"
+    } else if(role == "ROLE_QUALITY_ANALYSTE")
+    {
+      this.myRole = "user.roles.qualityAnalyste"
+    } else 
+    {
+      this.myRole = "user.roles.helpDesk"
+    } 
+  }
 }
 

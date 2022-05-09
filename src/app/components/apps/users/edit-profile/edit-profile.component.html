@@ -46,12 +46,6 @@
                   </div>
                 </div>
               </div>
-              <div class="col-sm-6 col-md-3">
-                <div class="form-group">
-                  <label class="form-label">{{ 'user.fields.avatar' | translate }}</label>
-                  <input class="file-form-control" type="file" (change)="onFileChange($event)" accept="image/*">
-                </div>
-              </div>
               <div class="col-sm-6 col-md-6">
                 <div class="form-group">
                   <label class="form-label">{{ 'user.fields.password' | translate }}</label>
@@ -82,8 +76,11 @@
               </div>
             </div>
           </div>
-          <div class="card-footer text-right">
-            <button class="btn btn-primary" type="submit">
+          <div class="card-footer text-right">            
+            <button class="btn btn-primary mr-1" type="button" routerLink="/user/profile">
+              <i class="fa fa-arrow-left"></i> {{ 'common.tables.back' | translate }}
+            </button>
+            <button class="btn btn-success" type="submit">
               <i class="fa fa-save"></i> {{ 'user.buttons.updateProfile' | translate }}
             </button>
           </div>

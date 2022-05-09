@@ -13,7 +13,6 @@ import { UserService } from 'src/app/shared/services/api/user.service';
 export class EditProfileComponent implements OnInit {
   public editProfile: FormGroup;
   submitted = false;
-  currentFile: any;
 
   constructor(private userService: UserService,
     private toasterService: ToastrService,
@@ -51,40 +50,14 @@ export class EditProfileComponent implements OnInit {
     });
   }
 
-  onFileChange(event) {
-    if (event.target.files.length > 0) {
-      const file = event.target.files[0];
-      this.currentFile = file
-    }
-  }
-
   saveUpdate(){
     this.submitted = true;
     if (this.editProfile.invalid) {
       return;
     }
-    
-    let formData: any = new FormData()
-    if (this.currentFile) {
-      formData.append("file", this.currentFile, this.currentFile.name);
-      this.userService.uploadAvatar(formData).subscribe((res: any) => {
-        const userForm = this.editProfile.value;
-        userForm['avatar'] = res?.result;
-        this.updateMyProfile(userForm);
-      }, (error: any) => {
-        this.toasterService.error('', error?.error?.message);
-      });
-    } else {
-      const userForm = this.editProfile.value;
-      userForm['avatar'] = 'defualt';
-      this.updateMyProfile(userForm);
-    }
-  }
-
-  updateMyProfile(userForm: any) {    
-    this.userService.updateProfile(userForm).subscribe((response: any) => {
+    this.userService.updateProfile(this.editProfile.value).subscribe((response: any) => {
       this.toasterService.success('', response?.message);
-      this.router.navigateByUrl('/dashboard/default');
+      this.router.navigateByUrl('/user/profile');
     }, (error: any) => {
       this.toasterService.error('', error?.error?.message);
     });
