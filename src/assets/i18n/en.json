@@ -257,6 +257,7 @@
       "emailRequired": "E-mail is required.",
       "emailBadFormat": "Invalid e-mail.",
       "passwordRequired": "Password is required.",
+      "passwordPattern": "Password must contain minimum: 8 characters, at least one lowercase letter, at least one uppercase letter, one number and one special character.",
       "roleRequired": "Role is required."
     },
     "roles": {

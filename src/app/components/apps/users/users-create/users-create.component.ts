@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { RxwebValidators } from '@rxweb/reactive-form-validators';
 import { ToastrService } from 'ngx-toastr';
 import { UserService } from 'src/app/shared/services/api/user.service';
 
@@ -23,8 +24,11 @@ export class UsersCreateComponent implements OnInit {
       lastName: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required, Validators.email]),
       role: new FormControl('', [Validators.required]),
-      password: new FormControl('', [Validators.required]),
-    })
+      password: new FormControl('', [Validators.required,
+      Validators.pattern(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[^\w\s]).{8,}$/)]),
+      // passwordConfirmation: new FormControl('', [Validators.required,
+      //   RxwebValidators.compare({fieldName:'password' })])
+    });
   }
 
   onFileChange(event) {

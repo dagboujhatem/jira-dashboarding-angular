@@ -15,8 +15,7 @@
               <div class="col-sm-6 col-md-6">
                 <div class="form-group">
                   <label class="form-label">{{ 'user.fields.firstName' | translate }}</label>
-                  <input class="form-control" type="text" placeholder="{{ 'user.fields.firstName' | translate }}" formControlName="firstName"
-                    onlyAlphabets>
+                  <input class="form-control" type="text" placeholder="{{ 'user.fields.firstName' | translate }}" formControlName="firstName">
                     <div *ngIf="submitted && userForm.controls.firstName.errors?.required"
                       class="text text-danger mt-1">
                         {{ 'user.validations.firstNameRequired' | translate }}
@@ -26,8 +25,7 @@
               <div class="col-sm-6 col-md-6">
                 <div class="form-group">
                   <label class="form-label">{{ 'user.fields.lastName' | translate }}</label>
-                  <input class="form-control" type="text" placeholder="{{ 'user.fields.lastName' | translate }}" formControlName="lastName"
-                    onlyAlphabets>
+                  <input class="form-control" type="text" placeholder="{{ 'user.fields.lastName' | translate }}" formControlName="lastName">
                     <div *ngIf="submitted && userForm.controls.lastName.errors?.required"
                       class="text text-danger mt-1">
                         {{ 'user.validations.lastNameRequired' | translate }}
