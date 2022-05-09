@@ -262,14 +262,12 @@
     },
     "roles": {
       "admin": "Admin",
-      "directeur": "Directeur",
       "teamManager": "Team Manager",
       "projectManager": "Project Manager",
       "teamLeader": "Team Leader",
       "softwareDeveloper": "Software Developer",
       "qualityAnalyste": "Quality Analyste",
-      "helpDesk": "Help desk",
-      "IT": "IT"
+      "helpDesk": "Help desk engineer"
     },
     "buttons": {
       "add": "Add",

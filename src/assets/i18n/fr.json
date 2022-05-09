@@ -262,14 +262,12 @@
             },
             "roles": {
                   "admin": "Administrateur",
-                  "directeur": "Directeur",
                   "teamManager": "Chef d'équipe",
                   "projectManager": "Chef de projet",
                   "teamLeader": "Responsable d'équipe",
                   "softwareDeveloper": "Développeur logiciel",
                   "qualityAnalyste": "Analyste qualité",
-                  "helpDesk": "Service d'assistance",
-                  "IT": "IT"
+                  "helpDesk": "Ingénieur Support"
             },
             "buttons": {
                   "add": "Ajouter",
