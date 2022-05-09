@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { RxwebValidators } from '@rxweb/reactive-form-validators';
 import { ToastrService } from 'ngx-toastr';
 import { UserService } from 'src/app/shared/services/api/user.service';
 
@@ -25,6 +26,17 @@ export class EditProfileComponent implements OnInit {
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', []),
     });
+    this.editProfile.get("password").valueChanges.subscribe(newValue => {
+      if(newValue != ""){
+        this.editProfile.get("password").setValidators([Validators.required,
+          Validators.pattern(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[^\w\s]).{8,}$/)]);
+        this.editProfile.addControl("passwordConfirmation", new FormControl('', [Validators.required,
+          RxwebValidators.compare({fieldName:'password' })]));
+      }else{
+        this.editProfile.get("password").setValidators([]);
+        this.editProfile.removeControl("passwordConfirmation");
+      }
+   });
     this.loadProfileData();
   }
 

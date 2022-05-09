@@ -46,16 +46,38 @@
                   </div>
                 </div>
               </div>
-              <div class="col-sm-6 col-md-6">
-                <div class="form-group">
-                  <label class="form-label">{{ 'user.fields.password' | translate }}</label>
-                  <input class="form-control" type="password" placeholder="{{ 'user.fields.password' | translate }}" formControlName="password">
-                </div>
-              </div>
               <div class="col-sm-6 col-md-3">
                 <div class="form-group">
                   <label class="form-label">{{ 'user.fields.avatar' | translate }}</label>
                   <input class="file-form-control" type="file" (change)="onFileChange($event)" accept="image/*">
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-6">
+                <div class="form-group">
+                  <label class="form-label">{{ 'user.fields.password' | translate }}</label>
+                  <input class="form-control" type="password" placeholder="{{ 'user.fields.password' | translate }}" formControlName="password">
+                  <div *ngIf="submitted && editProfile.controls.password.errors?.required"
+                      class="text text-danger mt-1">
+                      {{ 'user.validations.passwordRequired' | translate }}
+                  </div>
+                  <div *ngIf="submitted && editProfile.controls.password.errors?.pattern"
+                      class="text text-danger mt-1">
+                      {{ 'user.validations.passwordPattern' | translate }}
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-6" *ngIf="editProfile.controls.passwordConfirmation">
+                <div class="form-group">
+                  <label class="form-label">{{ 'user.fields.passwordConfirmation' | translate }}</label>
+                  <input class="form-control" type="password" placeholder="{{ 'user.fields.passwordConfirmation' | translate }}" formControlName="passwordConfirmation">
+                  <div *ngIf="submitted && editProfile.controls.passwordConfirmation.errors?.required"
+                      class="text text-danger mt-1">
+                      {{ 'user.validations.passwordConfirmationRequired' | translate }}
+                  </div>
+                  <div *ngIf="submitted && editProfile.controls.passwordConfirmation.errors?.compare"
+                      class="text text-danger mt-1">
+                      {{ 'user.validations.passwordMatch' | translate }}
+                  </div>
                 </div>
               </div>
             </div>

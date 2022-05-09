@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { RxwebValidators } from '@rxweb/reactive-form-validators';
 import { ToastrService } from 'ngx-toastr';
 import { UserService } from 'src/app/shared/services/api/user.service';
 
@@ -30,6 +31,17 @@ export class UsersUpdateComponent implements OnInit {
       role: new FormControl('', [Validators.required]),
       password: new FormControl('', []),
     });
+    this.userForm.get("password").valueChanges.subscribe(newValue => {
+      if(newValue != ""){
+        this.userForm.get("password").setValidators([Validators.required,
+          Validators.pattern(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[^\w\s]).{8,}$/)]);
+        this.userForm.addControl("passwordConfirmation", new FormControl('', [Validators.required,
+          RxwebValidators.compare({fieldName:'password' })]));
+      }else{
+        this.userForm.get("password").setValidators([]);
+        this.userForm.removeControl("passwordConfirmation");
+      }
+   });
     this.loadUserData();
   }
 

@@ -45,13 +45,7 @@
                       {{ 'user.validations.emailBadFormat' | translate }}
                   </div>
                 </div>
-              </div>
-              <div class="col-sm-6 col-md-6">
-                <div class="form-group">
-                  <label class="form-label">{{ 'user.fields.password' | translate }}</label>
-                  <input class="form-control" type="password" placeholder="{{ 'user.fields.password' | translate }}" formControlName="password">
-                </div>
-              </div>
+              </div>              
               <div class="col-sm-6 col-md-6">
                 <div class="form-group">
                   <label class="form-label">{{ 'user.fields.role' | translate }}</label>
@@ -68,6 +62,34 @@
                 <div *ngIf="submitted && userForm.controls.role.errors?.required"
                       class="text text-danger mt-1">
                       {{ 'user.validations.roleRequired' | translate }}
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-6">
+                <div class="form-group">
+                  <label class="form-label">{{ 'user.fields.password' | translate }}</label>
+                  <input class="form-control" type="password" placeholder="{{ 'user.fields.password' | translate }}" formControlName="password">
+                  <div *ngIf="submitted && userForm.controls.password.errors?.required"
+                      class="text text-danger mt-1">
+                      {{ 'user.validations.passwordRequired' | translate }}
+                  </div>
+                  <div *ngIf="submitted && userForm.controls.password.errors?.pattern"
+                      class="text text-danger mt-1">
+                      {{ 'user.validations.passwordPattern' | translate }}
+                  </div>
+                </div>
+              </div>              
+              <div class="col-sm-6 col-md-6" *ngIf="userForm.controls.passwordConfirmation">
+                <div class="form-group">
+                  <label class="form-label">{{ 'user.fields.passwordConfirmation' | translate }}</label>
+                  <input class="form-control" type="password" placeholder="{{ 'user.fields.passwordConfirmation' | translate }}" formControlName="passwordConfirmation">
+                  <div *ngIf="submitted && userForm.controls.passwordConfirmation.errors?.required"
+                      class="text text-danger mt-1">
+                      {{ 'user.validations.passwordConfirmationRequired' | translate }}
+                  </div>
+                  <div *ngIf="submitted && userForm.controls.passwordConfirmation.errors?.compare"
+                      class="text text-danger mt-1">
+                      {{ 'user.validations.passwordMatch' | translate }}
+                  </div>
                 </div>
               </div>
               <div class="col-sm-6 col-md-3">

@@ -45,6 +45,24 @@
                       {{ 'user.validations.emailBadFormat' | translate }}
                   </div>
                 </div>
+              </div>              
+              <div class="col-sm-6 col-md-6">
+                <div class="form-group">
+                  <label class="form-label">{{ 'user.fields.role' | translate }}</label>
+                  <select class="form-control btn-square" formControlName="role">
+                    <option value="ROLE_ADMIN">{{ 'user.roles.admin' | translate }}</option>
+                    <option value="ROLE_TEAM_MANAGER">{{ 'user.roles.teamManager' | translate }}</option>
+                    <option value="ROLE_PROJECT_MANAGER">{{ 'user.roles.projectManager' | translate }}</option>
+                    <option value="ROLE_TEAM_LEADER">{{ 'user.roles.teamLeader' | translate }}</option>
+                    <option value="ROLE_SOFTWARE_DEVELOPER">{{ 'user.roles.softwareDeveloper' | translate }}</option>
+                    <option value="ROLE_QUALITY_ANALYSTE">{{ 'user.roles.qualityAnalyste' | translate }}</option>
+                    <option value="ROLE_HELP_DESK">{{ 'user.roles.helpDesk' | translate }}</option>
+                  </select>
+                </div>
+                <div *ngIf="submitted && userForm.controls.role.errors?.required"
+                      class="text text-danger mt-1">
+                      {{ 'user.validations.roleRequired' | translate }}
+                </div>
               </div>
               <div class="col-sm-6 col-md-6">
                 <div class="form-group">
@@ -68,28 +86,10 @@
                       class="text text-danger mt-1">
                       {{ 'user.validations.passwordConfirmationRequired' | translate }}
                   </div>
-                  <div *ngIf="submitted && userForm.controls.passwordConfirmation.errors?.pattern"
+                  <div *ngIf="submitted && userForm.controls.passwordConfirmation.errors?.compare"
                       class="text text-danger mt-1">
                       {{ 'user.validations.passwordMatch' | translate }}
                   </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md-6">
-                <div class="form-group">
-                  <label class="form-label">{{ 'user.fields.role' | translate }}</label>
-                  <select class="form-control btn-square" formControlName="role">
-                    <option value="ROLE_ADMIN">{{ 'user.roles.admin' | translate }}</option>
-                    <option value="ROLE_TEAM_MANAGER">{{ 'user.roles.teamManager' | translate }}</option>
-                    <option value="ROLE_PROJECT_MANAGER">{{ 'user.roles.projectManager' | translate }}</option>
-                    <option value="ROLE_TEAM_LEADER">{{ 'user.roles.teamLeader' | translate }}</option>
-                    <option value="ROLE_SOFTWARE_DEVELOPER">{{ 'user.roles.softwareDeveloper' | translate }}</option>
-                    <option value="ROLE_QUALITY_ANALYSTE">{{ 'user.roles.qualityAnalyste' | translate }}</option>
-                    <option value="ROLE_HELP_DESK">{{ 'user.roles.helpDesk' | translate }}</option>
-                  </select>
-                </div>
-                <div *ngIf="submitted && userForm.controls.role.errors?.required"
-                      class="text text-danger mt-1">
-                      {{ 'user.validations.roleRequired' | translate }}
                 </div>
               </div>
               <div class="col-sm-6 col-md-3">
